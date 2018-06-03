@@ -1,0 +1,17 @@
+[33mcommit 5f13af1466242c8d8b3e75a5b8da791bf2deee43[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: EC2 Default User <ec2-user@ip-172-31-8-240.us-east-2.compute.internal>
+Date:   Sun Jun 3 06:00:42 2018 +0000
+
+    Make a basic User model
+
+[33mcommit 9feadbdd8d7febd9f18a41b06405e2d2bb708069[m
+Author: EC2 Default User <ec2-user@ip-172-31-8-240.us-east-2.compute.internal>
+Date:   Sun Jun 3 04:59:54 2018 +0000
+
+    Install the devise
+
+[33mcommit da2299a4dbd07b641793f3bd0f6b3fea9bf317bb[m
+Author: EC2 Default User <ec2-user@ip-172-31-8-240.us-east-2.compute.internal>
+Date:   Sun Jun 3 04:07:14 2018 +0000
+
+    Initial commit
