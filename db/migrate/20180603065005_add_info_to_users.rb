@@ -4,6 +4,6 @@ class AddInfoToUsers < ActiveRecord::Migration
     add_column :users, :weight, :integer
     add_column :users, :height, :integer
     add_column :users, :gender, :integer
-    add_column :users, :cal, :integer
+    add_column :users, :calorie_of_day, :integer
   end
 end

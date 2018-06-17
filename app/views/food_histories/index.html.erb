@@ -1,0 +1,29 @@
+<h1>Listing food_histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Detail</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @food_histories.each do |food_history| %>
+      <tr>
+        <td><%= food_history.title %></td>
+        <td><%= food_history.detail %></td>
+        <td><%= link_to 'Show', food_history %></td>
+        <td><%= link_to 'Edit', edit_food_history_path(food_history) %></td>
+        <td><%= link_to 'Destroy', food_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Food history', new_food_history_path %>

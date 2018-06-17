@@ -1,4 +1,8 @@
 CalorieApp::Application.routes.draw do
+  resources :foods
+
+  resources :food_histories
+
   get "static_pages/home"
   get "static_pages/help"
   # The priority is based upon order of creation: first created -> highest priority.
