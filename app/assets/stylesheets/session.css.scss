@@ -1,0 +1,94 @@
+.session_{
+    
+    &title {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }//.session_title
+    
+    &area{
+
+        input{
+
+            &[type="text"],
+            &[type="password"],
+            &[type="email"]{
+              background: transparent;
+              border: 0;
+              border-bottom: 2px solid #fff;
+              border-radius: 0;
+              color:#fff;
+              font-size:16px;
+              
+              &:focus {
+                  outline: 0;
+              }//[type="text"]:focus,[type="password"]:focus
+                
+              &::-webkit-input-placeholder{
+                color:#fff;
+                font-size:16px;
+              }//[type="text"]::-webkit-input-placeholder,[type="password"]::-webkit-input-placeholder
+
+            }//input[type="text"],[type="password"]
+            
+            &[type="submit"]{
+                color: #fff;
+                display:block;
+                margin:auto;
+                width:80%;
+                padding:12px;
+                background-color: #c7bc23;
+                border-color:#c7bc23;
+                
+                &:hover,
+                &:focus {
+                  color: #fff;
+                }//[type="submit"]:hover,:focus
+                
+            }//input[type="submit"]
+            
+        }//.session_area input
+        
+    }//.session_area
+    
+}//.session_
+
+
+
+.sessions {
+  .header_container { 
+    ul.static-nav {
+      li.static-nav__item {
+        &:nth-child(2)::after {
+          content:"";
+          display:block;
+          border-bottom:2px solid #000;
+          margin:auto;
+          width:60%;
+        }
+      }
+    }
+  }
+    
+  main {
+    background-image: url(/assets/bg/Sign_in.jpg);
+  }
+}
+
+.registrations {
+  .header_container { 
+    ul.static-nav {
+      li.static-nav__item {
+        &:last-child::after {
+          content:"";
+          display:block;
+          border-bottom:2px solid #000;
+          margin:auto;
+          width:60%;
+        }
+      }
+    }
+  }
+  main {
+    background-image: url(/assets/bg/Sign_in.jpg);
+  }
+}

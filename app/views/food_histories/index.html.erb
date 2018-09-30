@@ -1,21 +1,42 @@
-<h1>Listing food_histories</h1>
+<h1><%= t '.title' %></h1>
 
-<table>
+<%= form_tag(food_histories_path, method: "get") do %>
+  <%= label_tag(:user_id, t("food_histories.select_user")) %>
+  <%= select_tag(:user_id, options_for_select([['----', '']] + User.options, @search_params[:user_id])) %>
+  <%= label_tag(:ate_at_from_date,  t("food_histories.ate_at_from")) %>
+  <%= date_field_tag(:ate_at_from_date, @search_params[:ate_at_from_date]) %>
+  <%= label_tag(:ate_at_to_date, t("food_histories.ate_at_to")) %>
+  <%= date_field_tag(:ate_at_to_date, @search_params[:ate_at_to_date]) %>
+  
+  <%= label_tag(:name, t("food_histories.search_name_for")) %>
+  <%= text_field_tag(:name, @search_params[:name]) %>
+  <%= label_tag(:calorie_from, t("food_histories.calorie_from")) %>
+  <%= number_field_tag(:calorie_from, @search_params[:calorie_from]) %>
+  <%= label_tag(:calorie_to, t("food_histories.calorie_to")) %>
+  <%= number_field_tag(:calorie_to, @search_params[:calorie_to]) %>
+  
+  <%= submit_tag("Search") %>
+<% end %>
+
+<table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Detail</th>
+      <th><%= FoodHistory.human_attribute_name('user_id') %></th>
+      <th><%= FoodHistory.human_attribute_name('name') %></th>
+      <th><%= FoodHistory.human_attribute_name('calorie') %></th>
+      <th><%= FoodHistory.human_attribute_name('ate_at') %></th>
       <th></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
-
   <tbody>
     <% @food_histories.each do |food_history| %>
       <tr>
-        <td><%= food_history.title %></td>
-        <td><%= food_history.detail %></td>
+        <th scope="row"><%= food_history.user.name %></th>
+        <td><%= food_history.name %></td>
+        <td><%= food_history.calorie %></td>
+        <td><%= l(food_history.ate_at, format: :long) %></td>
         <td><%= link_to 'Show', food_history %></td>
         <td><%= link_to 'Edit', edit_food_history_path(food_history) %></td>
         <td><%= link_to 'Destroy', food_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>

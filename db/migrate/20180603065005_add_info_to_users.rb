@@ -1,4 +1,4 @@
-class AddInfoToUsers < ActiveRecord::Migration
+class AddInfoToUsers < ActiveRecord::Migration[4.2]
   def change
     add_column :users, :birthday, :date
     add_column :users, :weight, :integer

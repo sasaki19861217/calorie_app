@@ -1,0 +1,102 @@
+
+input {
+  border-radius:  5px;
+}
+
+#logo{
+  text-transform: none;
+  font-family: 'Sniglet', cursive;
+  color:#000;
+  font-size: 28px;
+  
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+a#logo:hover {
+  background-color:transparent;
+  color:#000;
+}
+
+
+.navbar-inverse{
+  background: #fff;
+  border:none;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #555;
+  
+    &:hover, 
+    &:focus {
+    color: #000;
+    background-color: transparent;
+  }
+}
+
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: #ad6949;
+  color: #fff;
+}
+
+//ホーム画面
+.static_pages,
+.sessions,
+.registrations {
+  padding-top:0;
+  
+  header {
+    position: unset;
+
+    #logo {
+      float: none;
+    }
+    
+    ul.navbar-right{
+      float:none !important;
+    }
+  }
+}
+
+
+//staticPage,sessionのヘッダー
+
+.static_pages,
+.sessions,
+.registrations{
+  .header_container{ 
+      h1 {
+          // margin-bottom: 24px;
+          margin: 6px auto 0;
+          padding-bottom: 12px;
+          a#logo {
+              font-size: 36px;
+          }
+      }
+  
+      ul.static-nav {
+          display: flex;
+          // padding-top: 12px;
+          max-width: 90%;
+          margin: auto;
+          padding-left: 0;
+          
+          li.static-nav__item {
+              list-style: none;
+              flex: 1;
+              text-align: center;
+              font-size: 16px;
+              
+              a {
+                  display: block;
+                  padding: 12px;
+              }
+          }
+      }
+  }
+}

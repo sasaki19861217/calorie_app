@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th><%= FoodHistory.human_attribute_name('user_id') %></th>
+      <th><%= FoodHistory.human_attribute_name('food_id') %></th>
+      <th><%= FoodHistory.human_attribute_name('ate_at') %></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <th scope="row"><%= @food_history.user.name %></th>
+        <td><%= @food_history.name %></td>
+        <td><%= l(@food_history.ate_at, format: :long) %></td>
+      </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Title:</strong>
-  <%= @food_history.title %>
-</p>
-
-<p>
-  <strong>Detail:</strong>
-  <%= @food_history.detail %>
-</p>
 
 <%= link_to 'Edit', edit_food_history_path(@food_history) %> |
 <%= link_to 'Back', food_histories_path %>

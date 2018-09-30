@@ -1,5 +1,20 @@
-<h1>New food_history</h1>
+<h1 class="food_histories__title text-white">なに食べた？</h1>
 
 <%= render 'form' %>
-
+<% if current_user.calorie_of_day.present? %>
+<h2>
+  合計<%= @total_calories %>kcal食べた！
+  <% remaining = current_user.calorie_of_day - @total_calories %>
+  <% if remaining <= 0 %>
+    今日はもう<%= remaining.abs %>kcalオーバーしています！
+  <% else %>
+    今日はまだ<%= remaining %>kcal食べられます！
+  <% end %>
+  
+</h2>
+<% else %>
+<h2>
+  合計<%= @total_calories %>kcal食べた！
+</h2>
+<% end %>
 <%= link_to 'Back', food_histories_path %>

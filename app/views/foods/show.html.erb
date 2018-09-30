@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @food.name %>
-</p>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>食べたもの</th>
+      <th>カロリー数</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <th scope="row"><%= @food.name %></th>
+        <td><%= @food.calorie %>kcal</td>
+      </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Calorie:</strong>
-  <%= @food.calorie %>
-</p>
 
 <%= link_to 'Edit', edit_food_path(@food) %> |
 <%= link_to 'Back', foods_path %>

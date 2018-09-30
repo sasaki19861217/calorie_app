@@ -11,15 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2 food_histories__area">
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, id: "food_menu_field" %>
+    </div>
+    <div class="field">
+      <%= f.label :calorie %><br>
+      <%= f.number_field :calorie, id: "food_calorie" %>
+    </div>
+    <div class="field">
+      <!--<%= f.label :ate_at %><br>-->
+      <%= f.datetime_field :ate_at %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  
   </div>
-  <div class="field">
-    <%= f.label :detail %><br>
-    <%= f.text_field :detail %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
+
+

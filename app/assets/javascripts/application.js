@@ -12,5 +12,27 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require jquery-ui
+
+$(function(){
+    var date = new Date();
+    
+    var yyyy = date.getFullYear();
+    var mm = ("0" + (date.getMonth() + 1)).slice(-2);
+    var dd = ("0" + date.getDate()).slice(-2);
+    var hh = date.getHours();
+    var mm = date.getMinutes();
+    
+    var today = yyyy + '-' + mm + '-' + dd + 'T' + hh + ':' + mm;
+    
+    console.log(today)
+    
+    $('.action input').on('click', function(){
+       if($('#food_history_ate_at').val() == "") {
+           $(this).val(today);
+       }
+    }); 
+});

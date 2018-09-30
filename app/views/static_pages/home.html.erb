@@ -1,13 +1,11 @@
-<div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
+<div class="st-main__posi center clearfix">
 
-  <h2>
-    This is the home page for the
-    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
+  <h1 class="st-home_title">なに食べた？</h1>
 
-  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+  <%= render 'form' %>
+
 </div>
 
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<div class="st-sinUp__link col-xs-10 col-xs-offset-2">
+  <u><%= link_to "え？ほかにも食べた？ >>", new_user_registration_path, class: "text-white" %></u>
+</div>
