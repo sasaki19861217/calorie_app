@@ -3,7 +3,7 @@ $ ->
     source: (req, res) ->
       document.result_data = {}
       $.ajax
-        url: "/foods/autocomplete_food_menu/" + encodeURIComponent(req.term),
+        url: "/food_histories/autocomplete_food_menu/" + encodeURIComponent(req.term),
         dataType: "json",
         success: (data) ->
           document.result_data = data

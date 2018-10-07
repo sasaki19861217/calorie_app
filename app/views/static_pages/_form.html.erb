@@ -1,12 +1,12 @@
-<form>
-    <div class="st-input__field">
+<%= form_tag(new_food_history_path, method: "get") do %>
+  <div class="st-input__field">
+    <div id="food_history_inputs">
       <!--<label for="food_menu_field">入力</label>-->
-      <input id="food_menu_field" type="text" value="" placeholder="食べた物を入力"></input>
+      <input id="food_menu_field" name="food_history[name]" type="text" value="" placeholder="食べた物を入力"></input>
       <span class="glyphicon glyphicon-search"></span>
 
-      <div id="food_name" class="text-white">ここに食べ物表示</div>
-      <div id="food_calorie" class="text-white">カロリー表示</div>
+      <input id="food_calorie" name="food_history[calorie]" class="text-white" type="text" readonly>
     </div>
-</form>
-
-
+  </div>
+  <input type="submit" class="btn btn-block btn-primary">
+<% end %>

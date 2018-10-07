@@ -4,10 +4,19 @@ ja:
     home: ホーム
   users:
     show:
-      title: ユーザ詳細
+      title: My Profile
+    edit:
+      title: Profile　Edit
+      email: メールアドレス
+      name: 名前
+      weight: 体重
+      height: 身長
+      gender: 性別
+      calorie: カロリー
+      password: パスワード
   food_histories:
     index:
-      title: 食事履歴
+      title: いままでの "tabeta"
     select_user: ユーザー選択
     search_name_for: 食べたもの
     ate_at_from: 食べた日付 (〜から)
@@ -44,7 +53,7 @@ ja:
         height: 身長
         gender: 性別
         calorie: カロリー
-        calorie_of_day: カロリー
+        calorie_of_day: カロリー制限
         foods: 食事
         foodstuffs: 食材
         food_histories: 食事履歴
@@ -56,6 +65,7 @@ ja:
         calorie: カロリー
         name: 名前
         ate_at: 食事をした日時
+        search_name_for: 食べたもの
 
   enumerize:
     user:

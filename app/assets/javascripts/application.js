@@ -16,23 +16,26 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery-ui
+$(window).bind("load", function(){
 
-$(function(){
-    var date = new Date();
-    
-    var yyyy = date.getFullYear();
-    var mm = ("0" + (date.getMonth() + 1)).slice(-2);
-    var dd = ("0" + date.getDate()).slice(-2);
-    var hh = date.getHours();
-    var mm = date.getMinutes();
-    
-    var today = yyyy + '-' + mm + '-' + dd + 'T' + hh + ':' + mm;
-    
-    console.log(today)
-    
-    $('.action input').on('click', function(){
-       if($('#food_history_ate_at').val() == "") {
-           $(this).val(today);
-       }
-    }); 
+	// 現在ページのURL取得
+	var path = location.pathname;
+	var page = $('body').attr('class'),
+	page = page.substr(-4);
+
+	// 現在ページが http://example.com/ なら実行
+	console.log(page);
+  if (path == "/food_histories/new" || page == "home"){
+
+  if ( $('#food_menu_field,#food_calorie').val().length == 0 ) {
+    $('#food_input').attr('disabled', 'disabled');
+  }
+  $('#food_menu_field,#food_calorie').bind('keydown keyup keypress change', function() {
+    if ( $(this).val().length > 0 ) {
+      $('#food_input').removeAttr('disabled');
+    } else {
+      $('#food_input').attr('disabled', 'disabled');
+    }
+  });    // ドメイン以下のパス名が /sample/sample.html の場合に実行する内容 
+  }
 });

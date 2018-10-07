@@ -1,50 +1,62 @@
-<% if controller.controller_name == "static_pages" || controller.controller_name == "sessions" || controller.controller_name == "registrations"%><!--HOME画面の場合-->
+<% if controller.controller_name == "static_pages" || controller.controller_name == "sessions" || controller.controller_name == "registrations" && controller.action_name == "new" %><!--HOME画面の場合-->
 <header class="">
   <div class="header_container">
     <nav>
         <ul class="static-nav clearfixr">
-          <li class="static-nav__item"><%= link_to t("pages.home"),    root_path %></li>
           <% if user_signed_in? %>
+            <li class="static-nav__item"><%= link_to t("pages.home"), new_food_history_path %></li>
             <li class="static-nav__item"><%= link_to "Sign out", destroy_user_session_path, method: "delete" %></li>
           <% else %>
+            <li class="static-nav__item"><%= link_to "HOME",    root_path %></li>
             <li class="static-nav__item"><%= link_to "Sign in", new_user_session_path %></li>
             <li class="static-nav__item"><%= link_to "Sign up", new_user_registration_path %></li>
           <% end %>
         </ul>      
     </nav>
     <h1 class="center"><%= link_to "Ta.Be.Ta", root_path, id: "logo" %></h1>
-  
+  </div>
   <% else %>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="header_container">
-    <%= link_to "Ta.Be.Ta", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to t("pages.home"),    root_path %></li>
-          <li><%= link_to "今までの食事",    food_histories_path %></li>
-          <% if user_signed_in? %>
-            <li><%= link_to "ユーザー一覧", users_path %></li>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "プロフィール", current_user %></li>
-                <li><%= link_to "設定", edit_user_registration_path %></li>
-                <li><%= link_to '食べたものを登録', new_food_path %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
+    <%= link_to "Ta.Be.Ta", new_food_history_path, id: "logo" %>
+    
+    <nav class="navbar">
+    	<div class="container-fluid">
+    		<div class="navbar-header">
+    			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
+    				<span class="sr-only">Toggle navigation</span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    			</button>
+    		</div>
+    		
+    		<div class="collapse navbar-collapse" id="navbarEexample1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to t("pages.home"), new_food_history_path %></li>
+              <li><%= link_to "今までの食事",    food_histories_path %></li>
+              <% if user_signed_in? %>
+                <li id="fat-menu" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Account <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "プロフィール", current_user %></li>
+                    <li><%= link_to "設定", edit_user_registration_path %></li>
+                    <li class="divider"></li>
+                    <li>
+                      <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
+                    </li>
+                  </ul>
                 </li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
-          <% end %>
-        </ul>
-      </nav>
-      
-    <%end%>
+              <% else %>
+                <li><%= link_to "Sign in", new_user_session_path %></li>
+              <% end %>
+            </ul>
+    		</div>
+    	</div>
+    </nav>
   </div>
+  <%end%>
 </header>
 <main>

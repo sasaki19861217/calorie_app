@@ -1,12 +1,42 @@
 class FoodHistoriesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:autocomplete_food_menu]
   before_action :set_food_history, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
+  URL = "https://www.eatsmart.jp/do/caloriecheck/list1?category=00&nutritionCode=0101&operatorKbn=01&searchKey="
+
+  def autocomplete_food_menu
+    term = params[:term]
+    # APIで指定された名前から一覧を取得する
+
+    suggestions = {}
+    
+    agent = Mechanize.new
+    page = agent.get(URL + URI.encode(term))
+    tr_list = page.search('div.result table tr')
+    tr_list.each do |tr|
+      alt_text = nil
+      calorie = nil
+      
+      tr.search('td').each.with_index do |td, index|
+        if index == 0
+          alt_text = td.at('div.thumb40 a img').get_attribute(:alt)
+        elsif index == 3
+          calorie_text = td.at('div').inner_text
+          calorie = calorie_text.to_i if calorie_text.present?
+        end
+      end
+        
+      if alt_text.present? # and calorie.present?
+        suggestions[alt_text] = calorie
+      end
+    end
+    render json: suggestions
+  end
+
   def index
     @search_params = {}
-    @search_params[:user_id] = params[:user_id]
     @search_params[:ate_at_from_date] = params[:ate_at_from_date]
     @search_params[:ate_at_to_date] = params[:ate_at_to_date]
     
@@ -15,7 +45,7 @@ class FoodHistoriesController < ApplicationController
     @search_params[:calorie_to] = params[:calorie_to]
     
     @food_histories = FoodHistory.includes(:user)
-    @food_histories = @food_histories.where(user_id: @search_params[:user_id].to_i) if @search_params[:user_id].present?
+    @food_histories = @food_histories.where(user_id: current_user.id) 
     @food_histories = @food_histories.where('ate_at >= ?', Time.zone.parse(@search_params[:ate_at_from_date])) if @search_params[:ate_at_from_date].present?
     if @search_params[:ate_at_to_date].present?
       ate_at_to = Time.zone.parse(@search_params[:ate_at_to_date])
@@ -35,7 +65,8 @@ class FoodHistoriesController < ApplicationController
   end
 
   def new
-    @food_history = FoodHistory.new
+    new_params = food_history_params rescue {}
+    @food_history = FoodHistory.new(new_params)
     @total_calories = total_calories
     respond_with(@food_history)
   end

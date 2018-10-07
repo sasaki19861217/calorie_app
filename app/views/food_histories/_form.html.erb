@@ -12,22 +12,23 @@
   <% end %>
 
 <div class="row">
-  <div class="col-xs-8 col-xs-offset-2 food_histories__area">
+  <div class="col-xs-10 col-xs-offset-1 food_histories__area">
 
     <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name, id: "food_menu_field" %>
+      <!--<%= f.label :search_name_for %><br>-->
+      <%= f.text_field :name, id: "food_menu_field", :placeholder => "食べたものを入力 :" %>
+      <input type="text" name="dummy" style="display:none;">
     </div>
     <div class="field">
-      <%= f.label :calorie %><br>
-      <%= f.number_field :calorie, id: "food_calorie" %>
+      <!--<%= f.label :calorie %><br>-->
+      <%= f.number_field :calorie, id: "food_calorie", :placeholder => "カロリー :"%>
     </div>
     <div class="field">
       <!--<%= f.label :ate_at %><br>-->
       <%= f.datetime_field :ate_at %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit id: "food_input"%>
     </div>
   
   </div>
@@ -35,3 +36,17 @@
 <% end %>
 
 
+<script>
+  // $(function(){
+  //   if ( $('#food_menu_field,#food_calorie').val().length == 0 ) {
+  //     $('#food_input').attr('disabled', 'disabled');
+  //   }
+  //   $('#food_menu_field,#food_calorie').bind('keydown keyup keypress change', function() {
+  //     if ( $(this).val().length > 0 ) {
+  //       $('#food_input').removeAttr('disabled');
+  //     } else {
+  //       $('#food_input').attr('disabled', 'disabled');
+  //     }
+  //   });
+  // });
+</script>

@@ -1,5 +1,4 @@
-<h1><%= t '.title' %></h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1 class="user_prof text-white"><%= t '.title' %></h1>
 <table class="table">
   <tbody>
     <tr>
@@ -12,23 +11,47 @@
     </tr>
     <tr>
         <th><%= User.human_attribute_name('birthday') %></th>
-        <td><%= @user.birthday %></td>
+        <% if @user.birthday == nil %>
+          <td>未設定</td>
+        <% else %> 
+          <td><%= @user.birthday.text %></td>
+        <% end %>
     </tr>
     <tr>
         <th><%= User.human_attribute_name('gender') %></th>
-        <td><%= @user.gender.text %></td>
+        <% if @user.gender == nil %>
+          <td>未設定</td>
+        <% else %>
+          <td><%= @user.gender.text %></td>
+        <% end %>
     </tr>
     <tr>
         <th><%= User.human_attribute_name('weight') %></th>
-        <td><%= @user.weight %></td>
+        <% if @user.weight == nil %>
+          <td>未設定</td>
+        <% else %>
+          <td><%= @user.weight %>kg</td>
+        <% end %>
     </tr>
     <tr>
         <th><%= User.human_attribute_name('height') %></th>
-        <td><%= @user.height %></td>
+        <% if @user.height == nil %>
+          <td>未設定</td>
+        <% else %>
+          <td><%= @user.height %>cm</td>
+        <% end %>
     </tr>
     <tr>
         <th><%= User.human_attribute_name('calorie_of_day') %></th>
-        <td><%= @user.calorie_of_day %></td>
+        <% if @user.height == nil %>
+          <td>未設定</td>
+        <% else %>
+          <td><%= @user.calorie_of_day %>kcal</td>
+        <% end %>
     </tr>
   </tbody>
 </table>
+<div class="clearfixr">
+    <div class="col-xs-10 col-xs-offset-1"><%= link_to "設定", edit_user_registration_path, class:"btn btn-block btn-primary text-white" %></div>
+</div>
+

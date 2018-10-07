@@ -248,5 +248,41 @@ aside {
   }
 }
 
+.navbar-inverse {
+  .navbar-toggle{ 
+    .icon-bar {
+      background-color: #000;
+    }
+    &:hover,
+    &:focus {
+      background-color: #fff;
+    }
+  }
+  .navbar-collapse,
+  .navbar-form {
+    border-color: #fff;
+  }
+}
+
+
+
+input::placeholder {
+  opacity: .8;
+}
+
+.card {
+  padding: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 18px;
+}
+
+h1.page-title {
+    font-size: 32px;
+}
+
+.btn-list{
+  margin:12px auto;
+}
+
 @import "base/header.css.scss";
 @import "base/body.css.scss";

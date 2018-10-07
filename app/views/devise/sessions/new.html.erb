@@ -1,5 +1,5 @@
 <% provide(:title, "Sign in") %>
-<h1 class="text-center text-white session_title">Sign in:<%= controller.controller_name %></h1>
+<h1 class="text-center text-white session_title">Sign in</h1>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="row">
@@ -7,16 +7,16 @@
 
     <div class="field">
       <!--<%= f.label :email %>-->
-      <%= f.text_field :email, :placeholder => "mail:" %>
+      <%= f.text_field :email, :placeholder => "mail :" %>
     </div>
 
     <div class="field">
       <!--<%= f.label :password %>-->
-      <%= f.password_field :password, :placeholder => "password:" %>
+      <%= f.password_field :password, :placeholder => "password :" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign in", class: "btn btn-large" %>
+      <%= f.submit "Sign in", class: "btn btn-lg btn-success" %>
     </div>
  
     <!--<p>New user? <%= link_to "Sign up now!", new_user_registration_path %></p>-->

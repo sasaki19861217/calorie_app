@@ -1,7 +1,7 @@
 CalorieApp::Application.routes.draw do
   resources :foods
   
-  get 'foods/autocomplete_food_menu/:term' => 'foods#autocomplete_food_menu'
+  get 'food_histories/autocomplete_food_menu/:term' => 'food_histories#autocomplete_food_menu'
 
   resources :food_histories
   devise_for :users, :controllers => {

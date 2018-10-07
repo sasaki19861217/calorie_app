@@ -1,3 +1,49 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.users {
+  .header_container { 
+    ul.static-nav {
+      li.static-nav__item {
+        &:last-child::after {
+          content:"";
+          display:block;
+          border-bottom:2px solid #000;
+          margin:auto;
+          width:60%;
+        }
+      }
+    }
+  }
+  main {
+    background-image: url(/assets/bg/Sign_in.jpg);
+  }
+  
+  &.show table {
+    border: 2px solid #fff;
+    border-radius: 6px;
+    border-collapse: separate;
+    background-color: #fff;
+    tr {
+      th {
+        border-right: 1px solid #ddd;
+        width:40%;
+      }
+      td{
+        text-align: center;
+      }
+    }
+  }
+}
+
+.users.show table tbody tr:first-child {
+  th,td {
+    border-top:0;
+  }
+}
+
+.user_prof {
+    font-size: 28px;
+    margin-bottom: 12px;
+}

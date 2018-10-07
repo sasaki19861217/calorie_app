@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
+    redirect_to(new_food_history_path) if current_user.present?
   end
 
   def help

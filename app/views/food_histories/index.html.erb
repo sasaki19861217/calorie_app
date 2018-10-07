@@ -1,50 +1,78 @@
-<h1><%= t '.title' %></h1>
+<h1 class="page-title"><span class="masking-tape"></span><%= t '.title' %></h1>
 
-<%= form_tag(food_histories_path, method: "get") do %>
-  <%= label_tag(:user_id, t("food_histories.select_user")) %>
-  <%= select_tag(:user_id, options_for_select([['----', '']] + User.options, @search_params[:user_id])) %>
-  <%= label_tag(:ate_at_from_date,  t("food_histories.ate_at_from")) %>
-  <%= date_field_tag(:ate_at_from_date, @search_params[:ate_at_from_date]) %>
-  <%= label_tag(:ate_at_to_date, t("food_histories.ate_at_to")) %>
-  <%= date_field_tag(:ate_at_to_date, @search_params[:ate_at_to_date]) %>
-  
-  <%= label_tag(:name, t("food_histories.search_name_for")) %>
-  <%= text_field_tag(:name, @search_params[:name]) %>
-  <%= label_tag(:calorie_from, t("food_histories.calorie_from")) %>
-  <%= number_field_tag(:calorie_from, @search_params[:calorie_from]) %>
-  <%= label_tag(:calorie_to, t("food_histories.calorie_to")) %>
-  <%= number_field_tag(:calorie_to, @search_params[:calorie_to]) %>
-  
-  <%= submit_tag("Search") %>
-<% end %>
+<div class="btn-list">
+  <a class="btn btn-primary btn-lg" data-toggle="modal" href="#myModal" role="button" aria-expanded="false" aria-controls="collapseExample">
+    絞り込んで検索
+  </a>
+</div>
+<!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">条件を絞って検索</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_tag(food_histories_path, method: "get") do %>
+            <!--<%= label_tag(:user_id, t("food_histories.select_user")) %>-->
+            <!--<%= select_tag(:user_id, options_for_select([['----', '']] + User.options, @search_params[:user_id])) %>-->
+            <%= label_tag(:ate_at_from_date,  t("food_histories.ate_at_from")) %>
+            <%= date_field_tag(:ate_at_from_date, @search_params[:ate_at_from_date]) %>
+            <%= label_tag(:ate_at_to_date, t("food_histories.ate_at_to")) %>
+            <%= date_field_tag(:ate_at_to_date, @search_params[:ate_at_to_date]) %>
+            
+            <%= label_tag(:name, t("food_histories.search_name_for")) %>
+            <%= text_field_tag(:name, @search_params[:name]) %>
+            <%= label_tag(:calorie_from, t("food_histories.calorie_from")) %>
+            <%= number_field_tag(:calorie_from, @search_params[:calorie_from]) %>
+            <%= label_tag(:calorie_to, t("food_histories.calorie_to")) %>
+            <%= number_field_tag(:calorie_to, @search_params[:calorie_to]) %>
+            
+            <div class="btn-list">
+              <%= submit_tag "Search" , :class => "btn btn-info" %>  
+            </div>
+            
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
-<table class="table">
-  <thead>
-    <tr>
-      <th><%= FoodHistory.human_attribute_name('user_id') %></th>
-      <th><%= FoodHistory.human_attribute_name('name') %></th>
-      <th><%= FoodHistory.human_attribute_name('calorie') %></th>
-      <th><%= FoodHistory.human_attribute_name('ate_at') %></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @food_histories.each do |food_history| %>
-      <tr>
-        <th scope="row"><%= food_history.user.name %></th>
-        <td><%= food_history.name %></td>
-        <td><%= food_history.calorie %></td>
-        <td><%= l(food_history.ate_at, format: :long) %></td>
-        <td><%= link_to 'Show', food_history %></td>
-        <td><%= link_to 'Edit', edit_food_history_path(food_history) %></td>
-        <td><%= link_to 'Destroy', food_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="fo-panel__bg">
+  <% @food_histories.each do |food_history| %>
+  <div class="fo-panel panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <%= food_history.name %>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <span class="fo-panel__info">カロリー：<%= food_history.calorie %>kcal</span>
+      <span class="fo-panel__info">食べた日：<%= l(food_history.ate_at, format: :long) %></span>
+    </div>
+    <div class="panel-footer">
+      <div class="row btn-list">
+        <!--<div class="col-xs-4">-->
+        <!--  <%= link_to 'Show', food_history, class: 'btn btn-danger btn-block' %>-->
+        <!--</div>-->
+        <div class="col-xs-6">
+          <%= link_to 'Edit', edit_food_history_path(food_history), class: 'btn btn-success btn-block' %>
+        </div>
+        <div class="col-xs-6">
+          <%= link_to 'Delete', food_history, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning btn-block'  %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
 
-<br>
-
-<%= link_to 'New Food history', new_food_history_path %>
+<div class="btn-list clearfixr">
+  <div class="col-xs-10 col-xs-offset-1">
+    <%= link_to '食べたものを登録', new_food_history_path, class: 'btn btn-block btn-primary' %>    
+  </div>
+</div>

@@ -4,59 +4,142 @@
 
 
 .food_histories {
-  main {
-    background-image: url(/assets/bg/addFood.jpg);
-    padding-bottom: 10%;
-    padding-top: 5%;
+  &.new{
+    main {
+      background-image: url(/assets/bg/addFood3.jpg);
+      // padding-bottom: 10%;
+      // padding-top: 5%;
+    }
   }
 }
 
 .food_histories{
-    
-    &__title {
-        font-size: 28px;
-        margin-bottom: 12px;
-    }//.session_title
-    
-    &__area{
+  
+  &__title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }//.session_title
+  
+  &__area{
 
-        input[type="text"],
-        input[type="datetime-local"],
-        select{
-              background: transparent;
-              border: 0;
-              border-bottom: 2px solid #fff;
-              border-radius: 0;
-              color:#fff;
-              font-size:16px;
-              
-              &:focus {
-                  outline: 0;
-              }//[type="text"]:focus,[type="password"]:focus
-                
-              &::-webkit-input-placeholder{
-                color:#fff;
-                font-size:16px;
-              }//[type="text"]::-webkit-input-placeholder,[type="password"]::-webkit-input-placeholder
-
-            }//input[type="text"],[type="password"]
-            
-        input[type="submit"]{
-            color: #fff;
-            display:block;
-            margin:auto;
-            width:80%;
-            padding:12px;
-            background-color: #c7bc23;
-            border-color:#c7bc23;
-            
-            &:hover,
-            &:focus {
-              color: #fff;
-            }//[type="submit"]:hover,:focus
-            
-        }//input[type="submit"]
+    input[type="text"],
+    input[type="datetime-local"],
+    input[type="number"],
+    select{
+      background: transparent;
+      border: 0;
+      border-bottom: 2px solid #fff;
+      border-radius: 0;
+      color:#fff;
+      font-size:16px;
+          
+      &:focus {
+        outline: 0;
+      }//[type="text"]:focus,[type="password"]:focus
         
-    }//.food_histories__area
-    
+      &::-webkit-input-placeholder{
+        color:#fff;
+        font-size:16px;
+      }//[type="text"]::-webkit-input-placeholder,[type="password"]::-webkit-input-placeholder
+
+    }//input[type="text"],[type="password"]
+          
+      input[type="submit"]{
+        color: #fff;
+        display:block;
+        margin:auto;
+        width:80%;
+        padding:12px;
+        background-color: #c7bc23;
+        border-color:#c7bc23;
+        
+        &:hover,
+        &:focus {
+          color: #fff;
+        }//[type="submit"]:hover,:focus
+          
+      }//input[type="submit"]
+      
+  }//.food_histories__area
+  
+  &.index,
+  &.edit,
+  &.show{
+    main {
+      background-image: url("/assets/bg/popular_bg.jpg");
+      background-repeat: repeat;
+      background-size: contain;
+    }
+    .main_container > h1 {
+      margin-top: 0;
+    }
+  }
+  
 }//.food_histories
+
+h2.calorie_of_day{
+  font-size:20px;
+  line-height:1.4em;
+}
+
+
+.fo-panel{
+  .panel{
+    &-footer {
+      background: #fff;
+    }
+    &-title {
+      font-weight: bold;
+      color: #555;
+      font-size: 18px;
+    }
+    &-body span:first-child {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 2px;
+    }
+  }
+  .fo-panel__info {
+    display: block;
+    margin: 4px 0;
+    font-size: 16px;
+    letter-spacing: .1em;
+  }
+}
+
+
+.food_histories.index h1.page-title,
+.food_histories.edit .main_container
+{
+  position: relative;
+  background: #F8F0D7;
+  border-left: 4px dotted rgba(0,0,0,0.1);
+  border-right: 4px dotted rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  padding: 1em;
+  color: #65513f;
+  width: 300px;
+  margin: auto auto 24px;
+}
+.food_histories.edit .main_container{
+  width: 90%;
+  padding-top: 32px;
+  .masking-tape{
+    left: 36%;
+  }
+}
+
+.masking-tape{
+  position: absolute;
+  top: -1rem;
+  left: 26%;
+  width:100px;
+  height:30px;
+  background-image: linear-gradient(-45deg, rgba(227,155,140,.4) 25%, #fff 25%, #fff 50%, rgba(227,155,140,.4) 50%, rgba(227,155,140,.4) 75%, #fff 75%, #fff 70%);
+  background-size: 20px 20px;
+  border-left:2px dotted rgba(0,0,0,.1);
+  border-right:2px dotted rgba(0,0,0,.1);
+  box-shadow:0 0 5px rgba(0,0,0,.2);
+  padding: 0.25em 2em;
+  color: #65513f;
+  transform: rotate(-4deg);
+}

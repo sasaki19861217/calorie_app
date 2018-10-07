@@ -2,19 +2,25 @@
 
 <%= render 'form' %>
 <% if current_user.calorie_of_day.present? %>
-<h2>
-  合計<%= @total_calories %>kcal食べた！
+<h2 class="text-white calorie_of_day">
+  合計<b><%= @total_calories %>kcal</b>食べた！
   <% remaining = current_user.calorie_of_day - @total_calories %>
   <% if remaining <= 0 %>
-    今日はもう<%= remaining.abs %>kcalオーバーしています！
+    <br>今日はもう<b><%= remaining.abs %>kcal</b>オーバーしています！
   <% else %>
-    今日はまだ<%= remaining %>kcal食べられます！
+    <br>今日はまだ<b><%= remaining %>kcal</b>食べられます！
   <% end %>
   
 </h2>
 <% else %>
-<h2>
-  合計<%= @total_calories %>kcal食べた！
+<h2 class="text-white calorie_of_day">
+  合計<b><%= @total_calories %>kcal</b>食べた！
 </h2>
 <% end %>
-<%= link_to 'Back', food_histories_path %>
+<div class="btn-list clearfixr">
+  <div class="col-xs-10 col-xs-offset-1">
+    <%= link_to 'Back', food_histories_path, class:"btn btn-block btn-primary" %>  
+  </div>
+</div>
+
+
