@@ -1,12 +1,11 @@
 <%= form_tag(new_food_history_path, method: "get") do %>
   <div class="st-input__field">
+    <div id="baloon" class="baloon-tip">食べたものを入力すると候補が出て来ます</div>
     <div id="food_history_inputs">
-      <!--<label for="food_menu_field">入力</label>-->
-      <input id="food_menu_field" name="food_history[name]" type="text" value="" placeholder="食べた物を入力"></input>
-      <span class="glyphicon glyphicon-search"></span>
+      <input id="food_menu_field" name="food_history[name]" type="text" value="" placeholder="食べた物を入力で候補が出ます"></input>
 
-      <input id="food_calorie" name="food_history[calorie]" class="text-white" type="text" readonly>
+      <input id="food_calorie" name="food_history[calorie]" type="text" placeholder="kcal" readonly>
     </div>
   </div>
-  <input type="submit" class="btn btn-block btn-primary">
+  <input type="submit" class="btn btn-block">
 <% end %>

@@ -24,7 +24,7 @@ $(window).bind("load", function(){
 	page = page.substr(-4);
 
 	// 現在ページが http://example.com/ なら実行
-	console.log(page);
+// 	console.log(page);
   if (path == "/food_histories/new" || page == "home"){
 
   if ( $('#food_menu_field,#food_calorie').val().length == 0 ) {
@@ -36,6 +36,16 @@ $(window).bind("load", function(){
     } else {
       $('#food_input').attr('disabled', 'disabled');
     }
-  });    // ドメイン以下のパス名が /sample/sample.html の場合に実行する内容 
+  });
   }
+});
+
+$(function(){
+  $(".alert").on('click',function(){
+    $(this).fadeOut();
+  });
+  
+  $('#baloon, #food_menu_field').on('click', function(){
+    $('#baloon').fadeOut();
+  });
 });

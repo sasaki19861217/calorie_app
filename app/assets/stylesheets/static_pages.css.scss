@@ -67,3 +67,35 @@
     }
   }
 }
+
+.baloon-tip {
+  margin-bottom:8px;
+  background-color: #ffffff;
+  padding: 4px 0;
+  border: 1px solid #555;
+  border-radius: 5px;
+  position:relative;
+  color: #65513f;
+  
+  &::before{
+    content: "";
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    margin-left: -15px;
+    border: 8px solid transparent;
+    border-top: 8px solid #FFF;
+    z-index: 2;
+  }
+  &::after{
+    content:"";
+    position:absolute;
+    top: 100%;
+    bottom: -30px;
+    left: 50%;
+    margin-left: -17px;
+    border: 10px solid transparent;
+    border-top: 10px solid #555;
+    z-index: 1;
+  }
+}

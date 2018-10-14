@@ -3,7 +3,7 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="row">
-  <div class="col-xs-8 col-xs-offset-2 session_area">
+  <div class="col-xs-10 col-xs-offset-1 session_area">
 
     <div class="field">
       <!--<%= f.label :email %>-->
@@ -16,7 +16,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign in", class: "btn btn-lg btn-success" %>
+      <%= f.submit "Sign in", class: "btn btn-block" %>
     </div>
  
     <!--<p>New user? <%= link_to "Sign up now!", new_user_registration_path %></p>-->

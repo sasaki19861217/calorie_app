@@ -44,6 +44,42 @@
 }
 
 .user_prof {
-    font-size: 28px;
-    margin-bottom: 12px;
+  font-size: 28px;
+  margin-bottom: 12px;
 }
+
+
+.registrations.edit main {
+  background-image: url(/assets/bg/Sign_in.jpg);
+}
+.registrations.edit main {
+  padding-top: 15%;
+  padding-bottom: 20%;
+  margin-top: 0px;
+  background-repeat: no-repeat;
+  background-position-y: 100%;
+  background-position-x: center;
+  background-size: cover;
+}
+
+.registrations.edit input:not([type="submit"]),
+.registrations.edit select {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #fff;
+  border-radius: 0;
+  color: #fff;
+  font-size: 16px;
+  &:focus {
+    outline: 0;
+    box-shadow:none;
+  }
+}
+
+// .registrations.edit input[type="text"]:focus,
+// .registrations.edit input[type="datetime-local"]:focus,
+// .registrations.edit input[type="number"]:focus,
+// .registrations.edit select:focus {
+//   outline: 0;
+//   box-shadow:none;
+// }

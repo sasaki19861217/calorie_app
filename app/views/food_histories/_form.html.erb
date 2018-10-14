@@ -12,7 +12,7 @@
   <% end %>
 
 <div class="row">
-  <div class="col-xs-10 col-xs-offset-1 food_histories__area">
+  <div class="col-xs-12 food_histories__area">
 
     <div class="field">
       <!--<%= f.label :search_name_for %><br>-->
@@ -28,7 +28,7 @@
       <%= f.datetime_field :ate_at %>
     </div>
     <div class="actions">
-      <%= f.submit id: "food_input"%>
+      <%= f.submit id: "food_input", :class => 'btn btn-block btn-brown'%>
     </div>
   
   </div>

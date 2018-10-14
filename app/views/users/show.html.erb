@@ -14,7 +14,7 @@
         <% if @user.birthday == nil %>
           <td>未設定</td>
         <% else %> 
-          <td><%= @user.birthday.text %></td>
+          <td><%= @user.birthday.strftime("%Y年%m月%d日") %></td>
         <% end %>
     </tr>
     <tr>
@@ -52,6 +52,6 @@
   </tbody>
 </table>
 <div class="clearfixr">
-    <div class="col-xs-10 col-xs-offset-1"><%= link_to "設定", edit_user_registration_path, class:"btn btn-block btn-primary text-white" %></div>
+    <div class="col-xs-10 col-xs-offset-1"><%= link_to "設定", edit_user_registration_path, class:"btn btn-block" %></div>
 </div>
 

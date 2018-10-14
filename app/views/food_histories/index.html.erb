@@ -1,11 +1,13 @@
-<h1 class="page-title"><span class="masking-tape"></span><%= t '.title' %></h1>
-
-<div class="btn-list">
-  <a class="btn btn-primary btn-lg" data-toggle="modal" href="#myModal" role="button" aria-expanded="false" aria-controls="collapseExample">
-    絞り込んで検索
-  </a>
-</div>
-<!-- Modal -->
+<header class="memo_bg">
+  <span class="masking-tape"></span>
+  <h1 class="page-title"><%= t 'food_histories.index.title_html' %></h1>
+  
+  <div class="btn-list">
+    <a class="btn btn-block btn-brown btn-lg" data-toggle="modal" href="#myModal" role="button" aria-expanded="false" aria-controls="collapseExample">
+      絞り込んで検索
+    </a>
+  </div>
+  <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -30,7 +32,7 @@
             <%= number_field_tag(:calorie_to, @search_params[:calorie_to]) %>
             
             <div class="btn-list">
-              <%= submit_tag "Search" , :class => "btn btn-info" %>  
+              <%= submit_tag "Search" , :class => "btn btn-block btn-brown" %>  
             </div>
             
           <% end %>
@@ -41,13 +43,16 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+</header>
+
 
 <div class="fo-panel__bg">
   <% @food_histories.each do |food_history| %>
-  <div class="fo-panel panel panel-info">
+  <div class="fo-panel panel memo_bg">
+    <span class="masking-tape blue"></span>
     <div class="panel-heading">
       <h3 class="panel-title">
-        <%= food_history.name %>
+        <span class="under"><%= food_history.name %></span>
       </h3>
     </div>
     <div class="panel-body">
@@ -60,10 +65,10 @@
         <!--  <%= link_to 'Show', food_history, class: 'btn btn-danger btn-block' %>-->
         <!--</div>-->
         <div class="col-xs-6">
-          <%= link_to 'Edit', edit_food_history_path(food_history), class: 'btn btn-success btn-block' %>
+          <%= link_to 'Edit', edit_food_history_path(food_history), class: 'btn btn-block btn-brown' %>
         </div>
         <div class="col-xs-6">
-          <%= link_to 'Delete', food_history, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning btn-block'  %>
+          <%= link_to 'Delete', food_history, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-brown'  %>
         </div>
       </div>
     </div>

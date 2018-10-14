@@ -1,7 +1,11 @@
-<span class="masking-tape"></span>
-<h1 class="page-title">Editing food_history</h1>
+<header class="memo_bg">
+  <span class="masking-tape"></span>
+  <h1 class="page-title"><%= t 'food_histories.edit.title_html' %></h1>
+</header>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @food_history %> |
-<%= link_to 'Back', food_histories_path %>
+<div class="memo_bg contents">
+  <span class="masking-tape blue"></span>
+  <%= render 'form' %>
+  
+  <%= link_to '一覧へ', food_histories_path, class: 'btn btn-block btn-brown' %>
+</div>

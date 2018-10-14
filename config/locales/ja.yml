@@ -1,5 +1,8 @@
 ---
 ja:
+  user:
+    password: パスワード
+    password_confirmation: パスワード確認
   pages: 
     home: ホーム
   users:
@@ -16,13 +19,15 @@ ja:
       password: パスワード
   food_histories:
     index:
-      title: いままでの "tabeta"
+      title_html: いままでの '<span class="under">"tabeta"</span>'
     select_user: ユーザー選択
     search_name_for: 食べたもの
     ate_at_from: 食べた日付 (〜から)
     ate_at_to: 食べた日付 (〜まで)
     calorie_from: カロリー (〜から)
     calorie_to: カロリー (〜まで)
+    edit:
+      title_html: '<span class="under">"tabeta"</span><br>を編集'
   foods:
     new:
       title: 食べもの登録
@@ -48,6 +53,9 @@ ja:
         email: メールアドレス
         salon_id: サロン
         password: パスワード
+        new_password: 新しいパスワード
+        password_confirmation: パスワード確認
+        current_password: 現在のパスワード
         name: 名前
         weight: 体重
         height: 身長
